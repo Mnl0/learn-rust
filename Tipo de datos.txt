@@ -1,0 +1,89 @@
+###Tipos de números enteros
+Numero sin componente fraccionario.
+
+Longitud 	| firmado | no firmado
+	8bits		i8			u8	
+	16bits		i16			u16
+	32bits		i32			u32
+	64bits		i64			u64
+	128bits		i128		u128
+	arco		isize		usize
+
+Firmado: valores positivos o negativos -(2 n-1) hasta 2 n-1 -1
+No firmado: valores positivos o 0 2 n-1
+isize y usize: dependen de la arquitectura de donde se ejecuta el software (32/64bits)
+
+literales numericos pueden utilizar _ el compilador ignora el _
+let million = 1_000_000;
+let billion = 1_000_000_000;
+let trillion = 1_000_000_000_000;
+
+Números literales	Ejemplo
+Decimal				98_222
+Maleficio			0xff
+octal				0o77
+Binario				0b1111_0000
+Byte ( u8solo)		b'A'
+
+Tipo punto flotante
+f32 y f64	32/64bits	tipo predeterminado f64	  todos los flotantes estan firmados
+
+f32 presicion simple / f64 presicion doble
+
+###Operadores matematicos###
+Operador			Ejemplo									Explicación										¿Sobrecargable?
+	!				ident!(...), ident!{...},ident![...]	Macroexpansión	
+	!				!expr									Complemento bit a bit o lógico						Not
+	!=				expr != expr							Comparación de desigualdad							PartialEq
+	%				expr % expr								Resto aritmético									Rem
+	%=				var %= expr								Resto aritmético y asignación.						RemAssign
+	&				&expr,&mut expr							Pedir prestado	
+	&				&type, &mut type, &'a type,&'a mut type	Tipo de puntero prestado	
+	&				expr & expr								Bit a bit Y											BitAnd
+	&=				var &= expr								Bit a bit Y y asignación							BitAndAssign
+	&&				expr && expr							Cortocircuito Y lógico	
+	*				expr * expr								multiplicación aritmética							Mul
+	*=				var *= expr								Multiplicación y asignación aritmética.				MulAssign
+	*				*expr									Desreferencia										Deref
+	*				*const type,*mut type					puntero crudo	
+	+				trait + trait,'a + trait				Restricción de tipo compuesto	
+	+				expr + expr								Suma aritmética										Add
+	+=				var += expr								Suma y asignación aritmética						AddAssign
+	,				expr, expr								Separador de argumentos y elementos.	
+	-				- expr									negación aritmética									Neg
+	-				expr - expr								Resta aritmética									Sub
+	-=				var -= expr								Resta y asignación aritmética						SubAssign
+	->				fn(...) -> type,|...| -> type			Tipo de retorno de función y cierre	
+	.				expr.ident								Acceso de miembros	
+	..				.., expr.., ..expr,expr..expr			Literal de rango exclusivo a la derecha				PartialOrd
+	..=				..=expr,expr..=expr						Literal de rango inclusivo a la derecha				PartialOrd
+	..				..expr									Sintaxis de actualización literal de estructura	
+	..				variant(x, ..),struct_type { x, .. }	Encuadernación con patrón “Y lo demás”	
+	...				expr...expr								(En desuso, utilícelo ..=en su lugar) 
+															En un patrón: patrón de rango inclusivo	
+	/				expr / expr								división aritmética									Div
+	/=				var /= expr								División y asignación aritmética.					DivAssign
+	:				pat: type,ident: type					Restricciones	
+	:				ident: expr								Inicializador de campo de estructura	
+	:				'a: loop {...}							Etiqueta de bucle	
+	;				expr;									Terminador de declaración y artículo	
+	;				[...; len]								Parte de la sintaxis de matriz de tamaño fijo	
+	<<				expr << expr							Shift izquierdo										Shl
+	<<=				var <<= expr							Desplazamiento a la izquierda y asignación			ShlAssign
+	<				expr < expr								Menos que comparación								PartialOrd
+	<=				expr <= expr							Menor o igual que la comparación					PartialOrd
+	=				var = expr,ident = type					Asignación/equivalencia	
+	==				expr == expr							Comparación de igualdad								PartialEq
+	=>				pat => expr								Parte de la sintaxis del brazo de coincidencia	
+	>				expr > expr								Mayor que la comparación							PartialOrd
+	>=				expr >= expr							Mayor o igual que la comparación					PartialOrd
+	>>				expr >> expr							Giro a la derecha									Shr
+	>>=				var >>= expr							Desplazamiento a la derecha y asignación			ShrAssign
+	@				ident @ pat								Encuadernación con patrón	
+	^				expr ^ expr								O exclusivo	bit a bit								BitXor
+	^=				var ^= expr								OR exclusivo bit a bit y asignación					BitXorAssign
+	|				pat | pat								Alternativas de patrones	
+	|				expr | expr								O bit a bit											BitOr
+	|=				var |= expr								OR bit a bit y asignación							BitOrAssign
+	||				expr || expr							O lógico en cortocircuito	
+	?				expr?									Propagación de errores	
