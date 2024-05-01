@@ -50,6 +50,7 @@ fn main() {
     println!("Matriz devuelta dos: {:?}", valor_matriz_dos);
     let valor_matriz_string = tipo_matriz_string();
     println!("Matriz devuelta string: {:?}", valor_matriz_string);
+    println!("Un elemento de la matriz {}", valor_matriz_string[0]);
 }
 
 /*========operador boleano ========== */
