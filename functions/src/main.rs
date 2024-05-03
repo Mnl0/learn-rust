@@ -14,7 +14,7 @@ fn main() {
     println!("El valor duplicado es: {}", tripicar_valor);
 
     ejemplo_declaracion_expresion(3);
-    let decl = 6; //declaracion
+    //let decl = 6; //declaracion
 }
 
 fn another_functions(x: i32) {
