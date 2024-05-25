@@ -96,4 +96,5 @@ fn ejercicio_tres() {
     // La quebrazón de platos de goma 16:00 Hrs.
     // Cantidad de entradas 2
     // Total a pagar $7000
+    //probando un commit desde el notebook
 }
