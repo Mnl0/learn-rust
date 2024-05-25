@@ -50,6 +50,7 @@ fn ejercicio_uno() {
         Ok(num) => num,
         Err(_) => -1.0,
     };
+
     let descuento = sueldo_bruto * 0.20;
     let bono = sueldo_bruto * 0.15;
     let sueldo_liquido = sueldo_bruto + bono - descuento;
